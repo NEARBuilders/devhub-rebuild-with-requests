@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react';
-import { getProposal, type Proposal } from './lib/sdk';
-import { Navbar } from './components/Navbar';
-import { ProposalHeader } from './components/ProposalHeader';
-import { ProposalContent } from './components/ProposalContent';
-import { ProposalSidebar } from './components/ProposalSidebar';
+import { useEffect, useState } from "react";
+import { getProposal, type Proposal } from "./lib/sdk";
+import { Navbar } from "./components/Navbar";
+import { ProposalHeader } from "./components/ProposalHeader";
+import { ProposalContent } from "./components/ProposalContent";
+import { ProposalSidebar } from "./components/ProposalSidebar";
 
 export default function App() {
   const [proposal, setProposal] = useState<Proposal | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getProposal('267')
+    getProposal("267")
       .then(setProposal)
       .finally(() => setLoading(false));
   }, []);
@@ -38,7 +38,7 @@ export default function App() {
         <div className="bg-white rounded-lg shadow overflow-hidden">
           <div className="p-6">
             <ProposalHeader proposal={proposal} />
-            
+
             {/* Mobile: Sidebar appears first */}
             <div className="lg:hidden mt-8">
               <ProposalSidebar proposal={proposal} />

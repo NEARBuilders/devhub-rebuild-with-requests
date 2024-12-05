@@ -1,7 +1,14 @@
-import { useState } from 'react';
-import { Bold, Italic, Link as LinkIcon, Image, Hash, Quote } from 'lucide-react';
-import { Button } from './ui/Button';
-import { cn } from '../lib/utils';
+import { useState } from "react";
+import {
+  Bold,
+  Italic,
+  Link as LinkIcon,
+  Image,
+  Hash,
+  Quote,
+} from "lucide-react";
+import { Button } from "./ui/Button";
+import { cn } from "../lib/utils";
 
 interface CommentFormProps {
   onSubmit: (content: string) => void;
@@ -9,48 +16,48 @@ interface CommentFormProps {
 }
 
 export function CommentForm({ onSubmit, className }: CommentFormProps) {
-  const [mode, setMode] = useState<'write' | 'preview'>('write');
-  const [content, setContent] = useState('');
+  const [mode, setMode] = useState<"write" | "preview">("write");
+  const [content, setContent] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (content.trim()) {
       onSubmit(content);
-      setContent('');
+      setContent("");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className={cn('space-y-4', className)}>
+    <form onSubmit={handleSubmit} className={cn("space-y-4", className)}>
       <div className="border border-gray-200 rounded-lg overflow-hidden">
         <div className="flex border-b border-gray-200">
           <button
             type="button"
-            onClick={() => setMode('write')}
+            onClick={() => setMode("write")}
             className={cn(
-              'px-4 py-2 text-sm font-medium',
-              mode === 'write'
-                ? 'text-gray-900 bg-white'
-                : 'text-gray-500 hover:text-gray-700 bg-gray-50'
+              "px-4 py-2 text-sm font-medium",
+              mode === "write"
+                ? "text-gray-900 bg-white"
+                : "text-gray-500 hover:text-gray-700 bg-gray-50",
             )}
           >
             Write
           </button>
           <button
             type="button"
-            onClick={() => setMode('preview')}
+            onClick={() => setMode("preview")}
             className={cn(
-              'px-4 py-2 text-sm font-medium',
-              mode === 'preview'
-                ? 'text-gray-900 bg-white'
-                : 'text-gray-500 hover:text-gray-700 bg-gray-50'
+              "px-4 py-2 text-sm font-medium",
+              mode === "preview"
+                ? "text-gray-900 bg-white"
+                : "text-gray-500 hover:text-gray-700 bg-gray-50",
             )}
           >
             Preview
           </button>
         </div>
 
-        {mode === 'write' ? (
+        {mode === "write" ? (
           <>
             <div className="border-b border-gray-200 bg-gray-50 px-3 py-2 flex gap-2">
               <button
@@ -106,13 +113,16 @@ export function CommentForm({ onSubmit, className }: CommentFormProps) {
           </>
         ) : (
           <div className="px-4 py-2 min-h-[150px] bg-gray-50">
-            {content || <span className="text-gray-500">Nothing to preview</span>}
+            {content || (
+              <span className="text-gray-500">Nothing to preview</span>
+            )}
           </div>
         )}
 
         <div className="bg-gray-50 px-4 py-3 text-right border-t border-gray-200 flex items-center justify-between">
           <div className="text-sm text-gray-500">
-            lines: {content.split('\n').length} words: {content.split(/\s+/).filter(Boolean).length}
+            lines: {content.split("\n").length} words:{" "}
+            {content.split(/\s+/).filter(Boolean).length}
           </div>
           <Button type="submit" disabled={!content.trim()}>
             Comment

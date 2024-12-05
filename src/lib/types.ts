@@ -5,16 +5,16 @@ export type PostTag = string;
 export type ProposalId = string;
 export type RFPId = string;
 
-export type ProposalFundingCurrency = 'NEAR' | 'USDC' | 'OTHER';
-export type TimelineStatus = 
-  | 'DRAFT'
-  | 'IN_REVIEW'
-  | 'APPROVED'
-  | 'APPROVED_CONDITIONAL'
-  | 'REJECTED'
-  | 'CANCELED'
-  | 'PAYMENT_PROCESSING'
-  | 'FUNDED';
+export type ProposalFundingCurrency = "NEAR" | "USDC" | "OTHER";
+export type TimelineStatus =
+  | "DRAFT"
+  | "IN_REVIEW"
+  | "APPROVED"
+  | "APPROVED_CONDITIONAL"
+  | "REJECTED"
+  | "CANCELED"
+  | "PAYMENT_PROCESSING"
+  | "FUNDED";
 
 export interface Proposal {
   id: ProposalId;
@@ -74,7 +74,7 @@ export interface ProposalWithUI {
   };
   verification: {
     provider: string;
-    status: 'Verified' | 'Pending';
+    status: "Verified" | "Pending";
   };
   sponsor: {
     name: string;
@@ -94,7 +94,7 @@ export interface Comment {
   };
   content: string;
   createdAt: string;
-  type: 'COMMENT' | 'STATUS_CHANGE' | 'TERMS_ACCEPTANCE';
+  type: "COMMENT" | "STATUS_CHANGE" | "TERMS_ACCEPTANCE";
   metadata?: {
     fromStatus?: string;
     toStatus?: string;
@@ -107,7 +107,7 @@ export interface ProposalProgress {
   steps: {
     title: string;
     description: string;
-    status: 'completed' | 'current' | 'upcoming';
+    status: "completed" | "current" | "upcoming";
     items?: {
       text: string;
       checked: boolean;

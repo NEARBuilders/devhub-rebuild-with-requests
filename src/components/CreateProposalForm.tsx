@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { Button } from './ui/Button';
-import { Input } from './ui/Input';
-import { AlertCircle } from 'lucide-react';
+import { useState } from "react";
+import { Button } from "./ui/Button";
+import { Input } from "./ui/Input";
+import { AlertCircle } from "lucide-react";
 
 interface CreateProposalFormProps {
   onSubmit: (data: any) => void;
@@ -9,13 +9,13 @@ interface CreateProposalFormProps {
 
 export function CreateProposalForm({ onSubmit }: CreateProposalFormProps) {
   const [formData, setFormData] = useState({
-    category: '',
-    title: '',
-    summary: '',
-    description: '',
-    amount: '',
-    currency: 'USDC',
-    recipientAddress: '',
+    category: "",
+    title: "",
+    summary: "",
+    description: "",
+    amount: "",
+    currency: "USDC",
+    recipientAddress: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -23,9 +23,13 @@ export function CreateProposalForm({ onSubmit }: CreateProposalFormProps) {
     onSubmit(formData);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -94,8 +98,10 @@ export function CreateProposalForm({ onSubmit }: CreateProposalFormProps) {
 
         <div className="space-y-6">
           <div className="bg-white rounded-lg border border-gray-200 p-4">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Funding Details</h2>
-            
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">
+              Funding Details
+            </h2>
+
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -136,8 +142,9 @@ export function CreateProposalForm({ onSubmit }: CreateProposalFormProps) {
               <div className="flex items-start gap-2 text-sm text-gray-600">
                 <AlertCircle className="h-5 w-5 flex-shrink-0" />
                 <p>
-                  Verification through Fractal is required before funds can be distributed. 
-                  You'll receive instructions after your proposal is approved.
+                  Verification through Fractal is required before funds can be
+                  distributed. You'll receive instructions after your proposal
+                  is approved.
                 </p>
               </div>
             </div>

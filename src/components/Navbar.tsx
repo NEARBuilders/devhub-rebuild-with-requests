@@ -1,6 +1,6 @@
-import { Menu, X } from 'lucide-react';
-import { Link } from '@tanstack/react-router';
-import { useState } from 'react';
+import { Menu, X } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { useState } from "react";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

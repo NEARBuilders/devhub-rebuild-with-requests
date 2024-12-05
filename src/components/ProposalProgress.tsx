@@ -1,5 +1,5 @@
-import { Check, Circle } from 'lucide-react';
-import type { ProposalProgress as Progress } from '../lib/sdk';
+import { Check, Circle } from "lucide-react";
+import type { ProposalProgress as Progress } from "../lib/sdk";
 
 interface ProposalProgressProps {
   progress: Progress;
@@ -22,12 +22,17 @@ export function ProposalProgress({ progress }: ProposalProgressProps) {
                 <div>
                   <span
                     className={`h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white
-                      ${step.status === 'completed' ? 'bg-green-500' : 
-                        step.status === 'current' ? 'bg-blue-500' : 'bg-gray-200'}`}
+                      ${
+                        step.status === "completed"
+                          ? "bg-green-500"
+                          : step.status === "current"
+                            ? "bg-blue-500"
+                            : "bg-gray-200"
+                      }`}
                   >
-                    {step.status === 'completed' ? (
+                    {step.status === "completed" ? (
                       <Check className="h-5 w-5 text-white" />
-                    ) : step.status === 'current' ? (
+                    ) : step.status === "current" ? (
                       <Circle className="h-5 w-5 text-white" />
                     ) : (
                       <Circle className="h-5 w-5 text-gray-500" />
@@ -41,7 +46,10 @@ export function ProposalProgress({ progress }: ProposalProgressProps) {
                     {step.items && (
                       <ul className="mt-2 space-y-1">
                         {step.items.map((item, index) => (
-                          <li key={index} className="flex items-center space-x-2 text-sm">
+                          <li
+                            key={index}
+                            className="flex items-center space-x-2 text-sm"
+                          >
                             <input
                               type="checkbox"
                               checked={item.checked}

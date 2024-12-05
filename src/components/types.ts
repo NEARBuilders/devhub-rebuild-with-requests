@@ -1,4 +1,8 @@
-import type { ProposalWithUI, Comment, ProposalFundingCurrency } from '../lib/types';
+import type {
+  ProposalWithUI,
+  Comment,
+  ProposalFundingCurrency,
+} from "../lib/types";
 
 export interface ProposalHeaderProps {
   proposal: ProposalWithUI;

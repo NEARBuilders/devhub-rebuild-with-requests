@@ -1,19 +1,19 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router'
-import { CreateProposalForm } from '../components/CreateProposalForm'
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { CreateProposalForm } from "../components/CreateProposalForm";
 
-export const Route = createFileRoute('/proposal/new')({
+export const Route = createFileRoute("/proposal/new")({
   component: CreateProposalPage,
-})
+});
 
 function CreateProposalPage() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (data: any) => {
     // In a real app, this would submit to an API
-    console.log('Submitting proposal:', data)
+    console.log("Submitting proposal:", data);
     // Navigate to the proposal page (using a dummy ID for now)
-    navigate({ to: '/proposal/$id', params: { id: '267' } })
-  }
+    navigate({ to: "/proposal/$id", params: { id: "267" } });
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
@@ -26,5 +26,5 @@ function CreateProposalPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

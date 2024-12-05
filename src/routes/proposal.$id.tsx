@@ -1,24 +1,24 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { useEffect, useState } from 'react';
-import { ProposalHeader } from '../components/ProposalHeader';
-import { ProposalContent } from '../components/ProposalContent';
-import { ProposalSidebar } from '../components/ProposalSidebar';
-import { ApprovalModal } from '../components/ApprovalModal';
-import { getProposal } from '../lib/sdk';
-import { ProposalWithUI } from '../lib/types';
+import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { ProposalHeader } from "../components/ProposalHeader";
+import { ProposalContent } from "../components/ProposalContent";
+import { ProposalSidebar } from "../components/ProposalSidebar";
+import { ApprovalModal } from "../components/ApprovalModal";
+import { getProposal } from "../lib/sdk";
+import { ProposalWithUI } from "../lib/types";
 
-export const Route = createFileRoute('/proposal/$id')({
+export const Route = createFileRoute("/proposal/$id")({
   loader: async ({ params: { id } }) => {
     const proposal = await getProposal(id);
     if (!proposal) {
-      throw new Error('Proposal not found');
+      throw new Error("Proposal not found");
     }
     return { proposal };
   },
   component: ProposalPage,
   errorComponent: ({ error }) => (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <p className="text-gray-600">{error.message || 'Proposal not found'}</p>
+      <p className="text-gray-600">{error.message || "Proposal not found"}</p>
     </div>
   ),
 });
@@ -29,7 +29,7 @@ function ProposalPage() {
   const [showInvoiceModal, setShowInvoiceModal] = useState(false);
 
   useEffect(() => {
-    if (proposal.status === 'APPROVED') {
+    if (proposal.status === "APPROVED") {
       setShowApprovalModal(true);
     }
   }, [proposal.status]);
@@ -38,11 +38,11 @@ function ProposalPage() {
     <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
       <div className="bg-white rounded-lg shadow overflow-hidden">
         <div className="p-6">
-          <ProposalHeader 
+          <ProposalHeader
             proposal={proposal}
             onOpenInvoiceModal={() => setShowInvoiceModal(true)}
           />
-          
+
           {/* Mobile: Sidebar appears first */}
           <div className="lg:hidden mt-8">
             <ProposalSidebar proposal={proposal} />

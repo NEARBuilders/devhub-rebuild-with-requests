@@ -1,8 +1,8 @@
-import { Dialog } from '@headlessui/react';
-import { X } from 'lucide-react';
-import { Button } from './ui/Button';
-import { Input } from './ui/Input';
-import { useState } from 'react';
+import { Dialog } from "@headlessui/react";
+import { X } from "lucide-react";
+import { Button } from "./ui/Button";
+import { Input } from "./ui/Input";
+import { useState } from "react";
 
 interface InvoiceModalProps {
   isOpen: boolean;
@@ -19,7 +19,12 @@ interface InvoiceModalProps {
   };
 }
 
-export function InvoiceModal({ isOpen, onClose, onSubmit, proposal }: InvoiceModalProps) {
+export function InvoiceModal({
+  isOpen,
+  onClose,
+  onSubmit,
+  proposal,
+}: InvoiceModalProps) {
   const [invoiceData, setInvoiceData] = useState({
     amount: proposal.fundingAmount.amount,
     currency: proposal.fundingAmount.currency,
@@ -35,7 +40,7 @@ export function InvoiceModal({ isOpen, onClose, onSubmit, proposal }: InvoiceMod
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-      
+
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="mx-auto max-w-md rounded-lg bg-white p-6">
           <div className="flex items-center justify-between mb-4">
@@ -58,7 +63,12 @@ export function InvoiceModal({ isOpen, onClose, onSubmit, proposal }: InvoiceMod
               <Input
                 type="number"
                 value={invoiceData.amount}
-                onChange={(e) => setInvoiceData(prev => ({ ...prev, amount: Number(e.target.value) }))}
+                onChange={(e) =>
+                  setInvoiceData((prev) => ({
+                    ...prev,
+                    amount: Number(e.target.value),
+                  }))
+                }
                 className="w-full"
               />
             </div>
@@ -86,11 +96,7 @@ export function InvoiceModal({ isOpen, onClose, onSubmit, proposal }: InvoiceMod
             </div>
 
             <div className="flex justify-end gap-3 mt-6">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={onClose}
-              >
+              <Button type="button" variant="outline" onClick={onClose}>
                 Cancel
               </Button>
               <Button
