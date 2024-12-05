@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
+    "@requestnetwork/request-client.js": "^0.52.0",
     "@tanstack/react-router": "^1.16.6",
     "canvas-confetti": "^1.9.2",
     "clsx": "^2.1.0",
