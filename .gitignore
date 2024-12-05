@@ -39,3 +39,9 @@ next-env.d.ts
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# package manager (comment out the one you use)
+yarn.lock
+package-lock.json
+pnpm-lock.json
+# bun.lockb
