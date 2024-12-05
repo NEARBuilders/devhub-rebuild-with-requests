@@ -5,10 +5,9 @@
 
 <div align="center">
 
-<h1 style="font-size: 2.5rem; font-weight: bold;">Project Title</h1>
-
+<h1 style="font-size: 2.5rem; font-weight: bold;">near/dev/hub (rebuild)</h1>
   <p>
-    <strong>This is a basic project template for new Build DAO projects</strong>
+    <strong>A decentralized platform for NEAR builders to submit and track funding requests</strong>
   </p>
 
 </div>
@@ -16,21 +15,42 @@
 <details>
   <summary>Table of Contents</summary>
 
+- [Features](#features)
+- [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
-  - [Installing dependencies](#installing-dependencies)
+  - [Install dependencies](#install-dependencies)
   - [Running the app](#running-the-app)
   - [Building for production](#building-for-production)
   - [Running tests](#running-tests)
+- [Project Structure](#project-structure)
 - [Contributing](#contributing)
 
 </details>
 
+## Features
+
+- 🏠 Modern landing page
+- 📝 Proposal submission and management
+- 💰 Funding request tracking
+- 📊 Progress visualization
+- 🔍 Search and filter capabilities
+- 📱 Fully responsive design
+
+## Tech Stack
+
+- **Framework**: React 18 with TypeScript
+- **Routing**: TanStack Router
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Package Manager**: Bun
+- **Build Tool**: Vite
+
 ## Getting Started
 
-### Installing dependencies
+### Install dependencies
 
 ```bash
-pnpm install
+bun install
 ```
 
 ### Running the app
@@ -38,13 +58,19 @@ pnpm install
 First, run the development server:
 
 ```bash
-pnpm run dev
+bun run dev
 ```
+
+The development server will start at `http://localhost:5173`.
 
 ### Building for production
 
 ```bash
-pnpm run build
+# Create a production build
+bun run build
+
+# Preview the production build
+bun run preview
 ```
 
 ### Running tests
@@ -54,6 +80,18 @@ pnpm run test
 ```
 
 See the full [testing guide](./playwright-tests/README.md).
+
+## Project Structure
+
+```
+src/
+├── components/        # Reusable UI components
+│   ├── ui/            # Base UI components
+│   └── ...
+├── lib/               # Core utilities and SDK
+├── routes/            # Application routes
+└── data/              # Mock data and types
+```
 
 ## Contributing
 
